@@ -295,12 +295,53 @@ const STAGES = {
 </div>
 `,
     options: [
-      { label: "Send AA consent",            goTo: "p-sales-final-eq" },
-      { label: "Draft Option A application", goTo: "p-sales-final-eq" },
+      { label: "Send AA consent",            goTo: "p-sales-aa-consent-sent" },
+      { label: "Draft Option A application", goTo: "p-sales-application-drafted" },
       { label: "Back to borrow options",     goTo: "p-sales-q1" },
     ],
     terminal: true,
   },
+
+  "p-sales-aa-consent-sent": {
+    type: "final",
+    agent: "Servicing Agent",
+    routingReason: "AA consent in motion · GSTR-1 + GSTR-3B",
+    thinking: [
+      "Generating single-purpose AA consent · GSTR-1 + GSTR-3B (4 quarters)",
+      "Routing the consent request to your registered mobile · +91 98•••• 4421",
+      "Setting validity window · 90 days · revocable any time",
+      "Writing immutable audit-log entry · ref AA-CNS-7821",
+    ],
+    tools: [
+      { icon: "🔗", label: "Account Aggregator" },
+      { icon: "📱", label: "Consent gateway" },
+      { icon: "📜", label: "Audit logger" },
+    ],
+    responseHtml: `<p><b>AA consent request sent.</b> Mobile gateway pinged, audit logged, data pull armed for your approval. Taking you to <i>Today</i> so you can watch the status live.</p>`,
+    autoOpenTracker: true,
+    terminal: true,
+  },
+
+  "p-sales-application-drafted": {
+    type: "final",
+    agent: "Sales & Advisory Agent",
+    routingReason: "Equipment loan application · in motion",
+    thinking: [
+      "Drafting the SME Equipment Loan application · pre-filled from KYC vault",
+      "Sizing at ₹6,00,000 · 30-month tenure · indicative EMI ₹24,700",
+      "Generating Key Fact Statement per RBI Digital Lending Guidelines",
+      "Queueing AA consent prompt for GSTR data refresh",
+    ],
+    tools: [
+      { icon: "📑", label: "KFS engine" },
+      { icon: "🏦", label: "Credit policy" },
+      { icon: "📜", label: "Audit logger" },
+    ],
+    responseHtml: `<p><b>Application drafted.</b> KFS attached, AA consent queued, awaiting your review. Taking you to <i>Today</i> so you can watch progress live.</p>`,
+    autoOpenTracker: true,
+    terminal: true,
+  },
+
   "p-sales-final-wc": {
     type: "final",
     agent: "Sales & Advisory Agent",
@@ -1757,6 +1798,33 @@ const ACTIVE_PLANS = {
       { label: "Auto-escalation",         status: "Armed",             tone: "neutral" },
     ],
     primaryAction: { label: "View case", openStage: "p-serv-compliance-active" },
+  },
+  "priya:aa-consent-sent": {
+    type: "active-plan",
+    title: "AA consent · GST data",
+    statusPill: "Active",
+    selectedSummary: "GSTR-1 + GSTR-3B · 4 quarters · for Option A eligibility",
+    rows: [
+      { label: "Consent request",           status: "Sent · AA-CNS-7821",     tone: "ok"      },
+      { label: "Your approval",             status: "Awaiting in AA app",     tone: "warn"    },
+      { label: "GST data pull",             status: "Armed · runs on approval", tone: "info"  },
+      { label: "Loan eligibility re-check", status: "Queued · ~2 min after pull", tone: "neutral" },
+    ],
+    primaryAction: { label: "View consent receipt", openStage: "p-sales-aa-consent-sent" },
+  },
+  "priya:sme-eq-application": {
+    type: "active-plan",
+    title: "Equipment loan · Option A application",
+    statusPill: "Active",
+    selectedSummary: "₹6,00,000 · 30 mo · 10.40% APR · EMI ₹24,700",
+    rows: [
+      { label: "Application drafted",     status: "Pre-filled from KYC",      tone: "ok"      },
+      { label: "Key Fact Statement",      status: "Attached",                 tone: "ok"      },
+      { label: "AA consent · GSTR data",  status: "Pending your approval",    tone: "warn"    },
+      { label: "Your review",             status: "Awaiting",                 tone: "warn"    },
+      { label: "Disbursal",               status: "After you accept",         tone: "neutral" },
+    ],
+    primaryAction: { label: "Review application", openStage: "p-sales-application-drafted" },
   },
 };
 
