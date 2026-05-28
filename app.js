@@ -102,6 +102,8 @@ const STAGE_TO_PLAN = {
   "a-growth-forex-active":       "arjun:forex-card",
   "p-serv-release-active":       "priya:release",
   "p-serv-compliance-active":    "priya:compliance",
+  "p-sales-aa-consent-sent":     "priya:aa-consent-sent",
+  "p-sales-application-drafted": "priya:sme-eq-application",
 };
 const PLAN_SUPERSEDES = {
   // The 3 salary options are mutually exclusive — picking one supersedes the others
