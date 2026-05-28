@@ -1,0 +1,601 @@
+================================================================
+  DEMO RUN-OF-SHOW · 15-min internal-leadership pitch
+  Aligned to the 5-slide Accenture Song deck
+================================================================
+
+AUDIENCE     Accenture Song internal leadership · Commerce & Sales
+DURATION     15 minutes hard cap
+FORMAT       5 min slides · 8 min live demo · 2 min Q&A
+
+THE PITCH IN ONE LINE
+"The bank should not add AI to the app. It should use agents to
+coordinate advice, action and trust." (final line · Slide 5)
+
+
+================================================================
+  TIMING AT A GLANCE
+================================================================
+
+0:00 - 1:00     Slide 1   Agentic Banking Engine                 60s
+1:00 - 1:45     Slide 2   One Engine, Two Contexts               45s
+1:45 - 2:30     Slide 3   Three Solution Plays                   45s
+2:30 - 3:30     Slide 4   What the Demo Proves                   60s
+3:30 - 8:30     DEMO      Arjun · 6 steps                        5 min
+8:30 - 11:30    DEMO      Priya · 6 steps                        3 min
+11:30 - 13:00   Slide 5   Decision and Path Forward              90s
+13:00 - 15:00   Q&A       Use prepared one-liners                2 min
+
+
+================================================================
+  SLIDE 1 · AGENTIC BANKING ENGINE                    [0:00 - 1:00]
+================================================================
+
+SHOW    The slide. Point at the 5 numbered layers (left side) and
+        the L1-L4 control ladder (right side).
+
+SAY (60s):
+
+"This is not a chatbot. It's a controlled coordination layer for
+intent, action and trust.
+
+Five layers — Customer Experience at the top, then Intent
+Coordination through a front-door agent, Business Agents that each
+own one outcome, Bank Capabilities accessed through those agents,
+and Controls + Accountability at the base.
+
+On the right is the control ladder — L1 Observe, L2 Prepare,
+L3 Act within rules, L4 Act with judgement. Authority increases;
+control never disappears.
+
+Every action this engine produces carries five things: a level, a
+reason, the data used, an approval or reversal handle, and an
+audit record."
+
+
+================================================================
+  SLIDE 2 · ONE ENGINE, TWO CONTEXTS                  [1:00 - 1:45]
+================================================================
+
+SHOW    The slide. Point at Arjun's 3 primary journeys (left), then
+        Priya's 3 primary journeys (right).
+
+SAY (45s):
+
+"Same engine works across two very different customer types.
+
+Arjun, retail — salary-increase guidance, car-purchase decision,
+card-dispute and upgrade. Life events and personal finance.
+
+Priya, SME bakery owner — payment-hold resolution, equipment
+financing, cost optimisation. Cash flow, costs and compliance.
+
+Together these two personas show growth, lending, servicing, and
+control on the same platform."
+
+
+================================================================
+  SLIDE 3 · THREE SOLUTION PLAYS                      [1:45 - 2:30]
+================================================================
+
+SHOW    The slide. Point at each of the three boxes, then the
+        Servicing trust layer at the bottom.
+
+SAY (45s):
+
+"A focused portfolio, not a collection of features. Three solution
+plays.
+
+  01  Sales & Advisory Navigator — turns customer needs into clear
+      choices and next actions. Outcome focus: higher conversion,
+      faster advice.
+
+  02  SME Commerce & Growth Co-pilot — turns SME banking data into
+      cost and growth actions. Lower costs, more active businesses.
+
+  03  Origination & Decisioning Orchestrator — moves intent to
+      approval with speed and evidence. Faster decisions, fewer
+      drop-offs.
+
+Servicing runs underneath all three as the trust layer — disputes,
+holds, reversals, rules, audit."
+
+
+================================================================
+  SLIDE 4 · WHAT THE DEMO PROVES                      [2:30 - 3:30]
+================================================================
+
+SHOW    The slide. Walk the 6 numbered nodes of Arjun's journey
+        (top row), then Priya's (bottom row). Then point at the
+        "VISIBLE IN THE DEMO" panel on the right.
+
+SAY (60s):
+
+"Here's what you're about to see — the same 6 steps for two
+different customers.
+
+Arjun: signal detected, options assembled, choice made, approval
+prepared, action queued, receipt created.
+
+Priya: risk flagged, explanation provided, improvement identified,
+financing surfaced, routine prepared, actions recorded.
+
+Different problems, same agentic pattern. Notice the autonomy
+badges below each persona — Arjun's flow uses Observe, Prepare,
+and Act-within-rules. Priya's flow uses Observe, Prepare, and
+Act-with-judgement.
+
+The four guarantees on the right — disclosures attached, controls
+applied BEFORE action, reversal available, audit record created —
+these are visible in every step.
+
+Now let's watch it happen."
+
+THEN switch to the browser tab with the app open.
+
+
+================================================================
+  DEMO · ARJUN · 6 STEPS                              [3:30 - 8:30]
+================================================================
+
+Confirm persona is Arjun (top-right dropdown · "Retail").
+Tap "Skip to my dashboard ->" on the hero screen.
+
+----------------------------------------------------------------
+STEP 1 · SIGNAL DETECTED  (L1 · Observe)
+
+CLICK   Stay on Today. Point at the GOLD salary NBA card at top.
+
+VISIBLE NBA card: "Rs20K salary increment landed - let's allocate
+        it intentionally" - 3 cited signals - Sales lever badge
+
+SAY     "Step 1 - signal detected. Aria saw the salary increment
+        land on the 2nd of May, noticed 15% of the new bandwidth
+        is unallocated, and surfaced a card. The lever badge
+        attributes this back to Sales & Advisory - Improve lead
+        conversion on the value tree. This is L1 - Observe."
+
+----------------------------------------------------------------
+STEP 2 · OPTIONS ASSEMBLED  (L2 · Prepare)
+
+CLICK   Tap "Walk me through the 3 options" on the GOLD salary NBA.
+
+VISIBLE Reasoning trace ticks - tool chips fade in - violet Sales
+        & Advisory route badge - 3-option streamed response (SIP
+        bump · term-life top-up · 50/50 split recommended).
+
+SAY     "Step 2 - options assembled. Aria called four tools, ran
+        3 modelling options against my income pattern, and laid
+        them out with KFS-style grids. Each option is decided, not
+        described. This is still L2 - Prepare."
+
+----------------------------------------------------------------
+STEP 3 · CHOICE MADE
+
+CLICK   Tap "Go with Option 3" (the recommended split).
+
+VISIBLE Acknowledgement message renders.
+
+SAY     "Step 3 - choice made. Customer picks Option 3 - split
+        50/50 - bump SIP plus top up term-life cover. Now we
+        move from Sales to Origination for one of those - the
+        car purchase."
+
+----------------------------------------------------------------
+BRIDGE · BACK TO TODAY
+
+CLICK   Tap the back-home button (top-right of chat). Return to
+        Today. Point at the VIOLET car NBA.
+
+SAY     "Notice the second card on Today - a different trigger:
+        CarWale browsing + corpus headroom. Same engine,
+        different signal."
+
+----------------------------------------------------------------
+STEP 4 · APPROVAL PREPARED  (L3 · Act within rules)
+
+CLICK   Tap "Walk me through the 3 options" on the violet car NBA.
+        Aria confirms car details. Tap "Walk me through the 3
+        options" again. 3-options card streams in. Tap the first
+        option: "Go with Option 3 - proceed to pre-approval".
+
+VISIBLE INDIGO Origination Agent badge (distinct from violet
+        Sales) - 7 reasoning steps tick off - 7 tool chips fade
+        in - then the Origination summary card with KYC fields
+        green-ticked: Aadhaar matched, PAN matched ITR, address
+        current, CIBIL 812 prime+, adverse media 0 hits, 7 of 7
+        policy checks passed.
+
+SAY     "Step 4 - approval prepared. Notice the badge colour
+        changed - indigo. That's Origination, a different
+        specialist taking over. Seven steps, seven tools -
+        e-KYC vault, CIBIL pull, adverse-media scan, KFS engine,
+        credit memo synth, policy checks, audit logger.
+
+        Every piece of evidence assembled BEFORE any commitment.
+        This is L3 - Act within rules."
+
+----------------------------------------------------------------
+STEP 5 · ACTION QUEUED
+
+CLICK   Stay in the same response. Scroll down to the Key Fact
+        Statement card and the Decision card.
+
+VISIBLE KFS card: loan principal Rs12L, APR 9.40%, tenure 60mo,
+        EMI Rs20,950, processing fee 1% + GST, cooling-off 3
+        days, total interest ~Rs79,600.
+        Decision card: big green checkmark, "Pre-approved · 9.40%
+        PSL · Sanction letter ready - disbursal once you accept".
+
+SAY     "Step 5 - action queued. The Key Fact Statement is
+        rendered before any debit - RBI Digital Lending
+        Guidelines compliant. Then the decision - pre-approved
+        at 9.40% PSL.
+
+        Disbursal is queued, not executed - customer still has
+        to accept. The disclosure is BEFORE the action - that's
+        the second guarantee from the visible-in-demo list."
+
+----------------------------------------------------------------
+STEP 6 · RECEIPT CREATED
+
+CLICK   Scroll to the audit-trail card at the bottom of the same
+        response.
+
+VISIBLE Audit trail: monospace timestamped log -
+          09:41:02  KYC pulled from vault
+          09:41:03  CIBIL inquiry · soft pull · score 812
+          09:41:04  Adverse media · zero hits
+          09:41:06  Credit memo synthesised · 7/7 checks passed
+          09:41:07  KFS rendered · RBI DLG compliant
+          09:41:09  Decision APPROVE
+
+SAY     "Step 6 - receipt created. Every step timestamped and
+        immutable. Reviewable by the customer, the relationship
+        banker, and the regulator. The fourth guarantee - audit
+        record created.
+
+        Ninety seconds of customer time replaces what's typically
+        7 to 14 days at a branch. That's the time-to-yes lever
+        from the value tree."
+
+
+================================================================
+  DEMO · PRIYA · 6 STEPS                             [8:30 - 11:30]
+================================================================
+
+Switch persona via the top-right dropdown - select "SME (Priya)".
+Intro animation plays briefly. Tap "Skip to my dashboard".
+
+----------------------------------------------------------------
+STEP 1 · RISK FLAGGED  (L4 · Act with judgement)
+
+CLICK   Stay on Today. Point at the AMBER alert at the top.
+
+VISIBLE Alert: "Your transfer to Mehta Flour Mills is on hold" -
+        Rs4,80,000 - 2.3x larger than usual - AML check reason.
+
+SAY     "Step 1 for Priya - risk flagged. Rs4.8 lakh transfer
+        held automatically. Aria didn't reject - it PAUSED.
+        That's L4, Act with judgement, with a reversibility
+        window. Same engine, different autonomy level for an
+        SME context."
+
+----------------------------------------------------------------
+STEP 2 · EXPLANATION PROVIDED
+
+CLICK   Tap "Review with Aria" on the alert.
+
+VISIBLE AML triage chat opens - reasoning ticks through (vendor
+        history, PMLA Schedule III) - TEAL Servicing route badge
+        - response with vendor card + 2 options: Quick-release
+        with invoice + self-attest, OR Compliance review by a
+        human officer.
+
+SAY     "Step 2 - explanation provided. Servicing agent walks
+        through why it was held - 2.3 times larger than her
+        typical Mehta Flour payment - and offers two clean options.
+        Quick-release with invoice + self-attest, or Compliance
+        review by a human officer. Disclosures attached."
+
+----------------------------------------------------------------
+STEP 3 · IMPROVEMENT IDENTIFIED
+
+CLICK   Use back-home -> return to Today. Find the "Done overnight"
+        section (moon icon). Tap to expand.
+
+VISIBLE 5 receipts:
+          GSTR-1 auto-filed                            L3
+          Auto-categorised 14 vendor payments          L1
+          Drafted 3 vendor chases (gentle tone)        L2
+          Refused 1 suspect merchant token (Visa)      L4 + Reverse
+          Settled Rs62,400 to ABC Sugar Traders        L3
+
+SAY     "Step 3 - improvement identified, but at the rules layer.
+        Look at what Aria did overnight under standing rules.
+        Five actions across ALL four autonomy levels - observation
+        up to act-with-judgement.
+
+        The L4 token-refusal has a Reverse button - 22 hours to
+        reverse. Control never disappears."
+
+----------------------------------------------------------------
+STEP 4 · FINANCING SURFACED
+
+CLICK   Type in chat composer (or tap hero category):
+          "Borrow for the bakery"
+        Choose: "New equipment (oven, mixer, freezer)"
+        Choose: "Rs6-10L within a month"
+
+VISIBLE Sales & Advisory chat opens. KFS for SME Equipment Loan
+        + OD enhancement comparison side-by-side. Account
+        Aggregator consent note at bottom.
+
+SAY     "Step 4 - financing surfaced. Aria pulls cash flow,
+        models loan vs OD, drafts the KFS, and asks for an
+        Account Aggregator consent before pulling GST data.
+        Single-purpose, time-bound, revocable. That's the
+        consent control BEFORE action."
+
+----------------------------------------------------------------
+STEP 5 · ROUTINE PREPARED  (L2 · Prepare)
+
+CLICK   Switch to Classic view (top-right toggle).
+        Tap "GST & taxes" quick-action tile.
+
+VISIBLE GST feature screen:
+          - ITC Rs14,200 available
+          - GSTR-1 / GSTR-3B both filed on time
+          - 2B reconciliation: 23 matched, 2 mismatches, 1 missing
+          - 3 drafted vendor chases in gentle / firm / payment-plan
+            tones - editable, never sent without tap
+
+SAY     "Step 5 - routine prepared. 2B reconciliation ran
+        overnight. Three vendor chases already drafted in three
+        different tones - gentle, firm, payment-plan - never sent
+        without her tap. That's L2 - Prepare. Tax and payroll
+        preview is the routine layer."
+
+----------------------------------------------------------------
+STEP 6 · ACTIONS RECORDED
+
+CLICK   Tap "More" in the Classic quick-actions grid.
+        Scroll to the Standing Rules Registry at the top.
+
+VISIBLE 8 standing rules - each with:
+          - L1/L2/L3/L4 colour-coded badge
+          - rule name + scope description
+          - last-fired timestamp
+          - count this month
+          - pause toggle (switch on the right)
+          - audit log link
+
+SAY     "Step 6 - actions recorded. The standing rules registry -
+        every rule Aria is authorised to fire on Priya's behalf.
+
+        Eight rules, autonomy level on each, last fired, count
+        this month, pause toggle at the rule level. Priya can
+        pause any rule individually. Audit log accessible.
+
+        This is where 'every action is governed and reversible'
+        from Slide 1 actually lives."
+
+
+================================================================
+  SLIDE 5 · DECISION AND PATH FORWARD              [11:30 - 13:00]
+================================================================
+
+SHOW    Switch back to slides. Show Slide 5.
+
+SAY (90s):
+
+"We're proposing a controlled pilot.
+
+The value-measurement table on the left maps each of the three
+solution plays to four dimensions - Growth, Efficiency, Control,
+Experience - with measurable KPIs for each cell.
+
+The approve checklist on the right is what we'd ask leadership to
+sign off:
+  - Three solution plays in scope
+  - Servicing as the trust layer
+  - Clear action limits
+  - Reversal and audit by default
+  - Human ownership for advice and risk decisions
+  - 90-day value review
+
+The roadmap is:
+  - 30 to 60 days for pilot design and controls
+  - 90 to 120 days for the controlled pilot itself
+  - 6 to 12 months to scale the capabilities that prove value
+
+The headline line at the bottom - 'The bank should not add AI to
+the app. It should use agents to coordinate advice, action and
+trust.' That's the entire pitch."
+
+
+================================================================
+  Q&A · PREPARED ONE-LINERS                        [13:00 - 15:00]
+================================================================
+
+Q: Is this real AI?
+A: Demo runs scripted. Same UI runs Claude or Grok the moment you
+   set an API key - backend in the project folder, ~250 lines.
+
+Q: What about Servicing / RM?
+A: Servicing exists in the app as the trust layer (Slide 3
+   footer). RM-facing surface is Song Service vertical - separate
+   build.
+
+Q: How does it stay compliant?
+A: Every response cites RBI policy inline - Customer Liability
+   Framework, PMLA, Digital Lending Guidelines, MITC, FEMA LRS,
+   BBPS. The control ladder makes autonomy explicit.
+
+Q: What's the production timeline?
+A: 30-60 days pilot design + 90-120 days controlled pilot + 6-12
+   months to scale. Roadmap on Slide 5.
+
+Q: What happens if Aria gets a decision wrong?
+A: Three things. Disclosures attached BEFORE the action. Reversal
+   available within a window for L3 + L4. Audit record on every
+   step.
+
+Q: Cost to run?
+A: ~Rs1 per conversation on Claude Haiku, ~Rs0.50 on Grok 4 Fast.
+   Sub-rupee for a 5-minute demo at the cheap tier.
+
+Q: Who owns risk decisions?
+A: Human owns advice and risk. Aria proposes, drafts, prepares.
+   L4 is the only level where Aria acts without explicit
+   per-action consent, and L4 is always reversible.
+
+Q: How is this different from existing chat?
+A: Look at the route badges in the demo - different specialists
+   own different outcomes. Aria isn't a generalist; it's a
+   coordinator that hands off to specialists with their own tool
+   entitlements.
+
+Q: What about hallucinations?
+A: Every reasoning step is grounded in a tool call against the
+   customer's real data. Tool chips are the audit of what was
+   actually looked at.
+
+Q: What changes for the bank's tech stack?
+A: The agent layer sits ABOVE the existing capabilities -
+   Payments, Credit, KYC, Offers, Disputes, Audit (Slide 1 layer
+   4). It doesn't replace; it coordinates.
+
+Q: Why these three solution plays?
+A: Discovery work: value chain mapping -> capability mapping ->
+   business-case scoring -> hotspot prioritisation. Servicing was
+   #1 but sits outside Song Commerce & Sales (covered by another
+   vertical).
+
+Q: What does success look like at 90 days?
+A: The value-measurement table on Slide 5 - 12 cells (3 plays x 4
+   dimensions) - each measured against baseline. 90-day review
+   against those cells decides what scales.
+
+
+================================================================
+  PRE-FLIGHT CHECKLIST · 10 MINUTES BEFORE
+================================================================
+
+  [ ]  Slides ready: 5-slide deck open at Slide 1
+  [ ]  Browser tab: file://...output/demo-app/index.html?mode=scripted
+  [ ]  Persona dropdown set to "Retail" (Arjun)
+  [ ]  Reload page once (Ctrl+F5) so intro animation plays clean
+  [ ]  Volume normal, phone on DND, Slack/Teams notifications muted
+  [ ]  Backup MP4 of full demo recording open in second window
+  [ ]  RUN-OF-SHOW.txt open in a side window (this file)
+
+
+SANITY CLICK-TEST · 1 minute end-to-end
+
+  1.  Intro animation plays (~1.8s)
+  2.  Hero screen appears - tap "Skip to my dashboard"
+  3.  See BOTH gold (salary) and violet (car) NBA cards at top
+  4.  Tap gold NBA -> 3-option response renders properly
+  5.  Back-home -> Today -> tap violet NBA -> walks through
+      car-buying clarification -> 3-options card -> "Go with Option 3
+      - proceed to pre-approval" -> INDIGO Origination badge
+      appears -> 4 rich cards stack (KYC summary · KFS · Decision
+      · Audit trail)
+  6.  Back-home -> switch persona to SME (Priya) -> intro plays
+      -> Skip to dashboard -> see Mehta Flour Mills hold alert
+      -> tap "Review with Aria" -> AML triage renders
+  7.  Switch back to Retail (Arjun) for the live walk
+
+If all 7 work, you're green for the demo.
+
+
+================================================================
+  WHAT'S BUILT TODAY vs PENDING
+================================================================
+
+BUILT TODAY (thin slice) - everything in the run-of-show above
+runs end-to-end:
+
+  + Slide deck (PITCH-DECK.md - to be realigned to 5-slide deck)
+  + Lever-badge component (CSS + helper in app.js)
+  + Origination specialist (frontend registry)
+  + 2 NBA cards on Arjun's Today (salary + car)
+  + Car-buying entry stage (a-carbuy-q1)
+  + Salary-increment final stage (a-growth-salary-bump-final)
+  + Origination summary stage (a-orig-summary) with 4 rich cards
+  + Existing Priya flows (held payment, equipment loan, MDR, GST
+    feature, payroll, More with standing rules registry, overnight
+    section)
+  + DEMO-WALKTHROUGH.md - click-by-click talk track
+
+PENDING (Day-2 work, would deepen Arjun's Step 4-6):
+
+  - Full 7-stage Origination reveal (splits the current single
+    composite card into 7 tappable cards: form-fill -> doc-intel
+    -> bureau -> memo -> KFS -> decision -> audit)
+  - Goal what-if simulator on Plan tab (Home Down-Payment)
+  - Agent orchestration overlay (visual re-trace of Aria -> Sales
+    -> Origination -> Audit chain after the demo)
+
+PENDING (Day-3 work, breadth credibility):
+
+  - TReDS NBA + chat arc for Priya
+  - Pre-trip ecosystem activation NBA for Arjun
+  - Backend Origination specialist + 5-target FRONTDOOR + new
+    tools (live mode)
+
+
+================================================================
+  RECOVERY MOVES IF SOMETHING BREAKS DURING THE WALK
+================================================================
+
+NBA cards don't appear on Today
+  -> Reload with ?mode=scripted appended to URL.
+     Make sure persona is Arjun.
+
+Tapping NBA opens a blank chat
+  -> Hard reload (Ctrl+Shift+R). The scripted scenarios are
+     static - if they fail to load, the JS file didn't parse.
+
+Origination badge looks same as Sales (both violet, not indigo)
+  -> Browser cached the old CSS. Ctrl+F5 to bust cache.
+
+Chat hangs mid-response
+  -> Don't tap again. Wait 2 seconds. If still frozen, refresh
+     tab and resume from Today.
+
+Intro animation loops
+  -> Append ?mode=scripted to URL - the URL param suppresses
+     re-runs.
+
+You forget the talk track
+  -> Look at this file (open in side window) - the talk track
+     is here.
+
+Backup plan
+  -> Pre-record the full demo as a screen capture (MP4) the
+     evening before. If anything breaks live, play the recording
+     silently and narrate over it.
+
+
+================================================================
+  THE HONEST FRAMING IF LEADERSHIP ASKS "IS THIS COMPLETE?"
+================================================================
+
+"You've seen the agentic spine end-to-end - front-door routing,
+four specialists, tool use, reasoning traces, audit trail.
+
+The pieces still pending are the 7-stage origination reveal
+(we're showing the summary card; the full step-by-step KYC
+walkthrough is two days of additional content work) and the
+agent-orchestration overlay (one more day).
+
+Nothing structural is missing - content depth is. Estimate one
+week to ship the complete demo."
+
+Honesty wins more credibility than overselling.
+
+
+================================================================
+  END · file written 2026-05-20
+================================================================
