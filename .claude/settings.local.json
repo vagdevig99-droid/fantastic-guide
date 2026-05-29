@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:www.revolut.com)",
+      "WebSearch",
+      "PowerShell(Start-Process \"output\\\\demo-app\\\\index.html\")",
+      "PowerShell(\\(Get-Content \"output\\\\demo-app\\\\styles.css\" | Measure-Object -Line\\).Lines)"
+    ]
+  }
+}
