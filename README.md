@@ -1,174 +1,150 @@
-# Aria — intelligent banking agent
+# Aria · agent-first banking demo
 
-A banking experience built around a single AI agent. The customer opens the app, sees Aria appear, and from there everything else unfolds — a personalised dashboard with four navigable tabs (Today · Money · Plan · Offers · Aria), a multi-stage conversational flow when they tap Aria, and a traditional widget-based fallback view that's always one toggle away.
+A clickable, demo-ready prototype showing what banking looks like when **one AI agent (Aria)** routes every customer intent — instead of menus, feature tiles, and chatbots. Built for an internal Accenture Song Commerce & Sales leadership pitch.
 
-Three priority hotspots from the value-chain analysis are covered end-to-end:
+Two personas ship in the box:
+- **Priya Sharma** · SME bakery owner · Pune
+- **Arjun Mehta** · retail salaried customer · Bengaluru
 
-- **Servicing & relationship** — payments, disputes, account questions
-- **Sales & advisory** — loans, cards, next-best-action
-- **Growth & marketplace** — partner offers, loyalty, ecosystem
-
-Regulatory framing is woven into every page and reply: RBI Customer Liability Framework, PMLA monitoring, Digital Lending Guidelines, Account Aggregator consent, MITC / Key Fact Statement disclosure, FEMA Liberalised Remittance Scheme, NPCI tokenisation rails — referenced as substance, not compliance theatre.
-
----
-
-## Opening the experience
-
-### Scripted mode (default · works offline · no setup)
-
-1. Open File Explorer and go to `output/demo-app/`.
-2. Double-click **`index.html`**.
-3. Maximise the browser window for the best look — the phone frame is centred against the aurora backdrop.
-
-If the file opens as raw text, right-click `index.html` → **Open with → Chrome** (or Edge).
-
-### Live agent mode (optional · real Claude calls)
-
-To swap the scripted dialog tree for a real Claude-powered agent that classifies intent, calls tools (`get_held_payments`, `check_loan_eligibility`, `compare_credit_cards`, etc.) against mock banking data, and streams its reply — see **[backend/README.md](backend/README.md)** for the ~5-minute setup. Once the server is running, the "Live" pill in the header lights up and you can toggle modes from the header.
-
-Hybrid by design — you can pitch using Scripted (zero risk, zero cost, offline) and demonstrate the real agentic substance using Live, all in the same app.
+The demo runs in two modes:
+- **Scripted** · static frontend · no backend, no key, runs anywhere (open `index.html`)
+- **Live** · same UI, real Claude API behind the scenes · backend handles the key, frontend never sees it
 
 ---
 
-## How the screens fit together
+## Quickstart — scripted demo (30 seconds, no setup)
 
-### 1 · Intro splash (~1.8 seconds)
+Just open the file in any modern browser:
 
-The orb rises in the centre of the dark stage, "Aria" fades up, then "your intelligent banking agent" follows. Auto-advances to the hero entry.
+```
+output/demo-app/index.html
+```
 
-### 2 · Hero (Aria asks what you need)
+That's it. The app boots into Aria's hero screen, both personas work, all NBA flows are pre-scripted with realistic reasoning traces. **No API key required.**
 
-A large centred orb, a personalised greeting that already references the customer's real state (balance, OD usage, dispute pending, etc.), three pill chips mapping to the priority hotspots, a free-text quickbox, and a small *"Skip to my dashboard →"* link.
-
-- Tap a chip → opens the chat with the right specialist agent.
-- Type freely → Aria pattern-matches and drops into the right stage.
-- Tap *"Skip to my dashboard"* → lands on **Today** with the bottom tabbar revealed.
-
-### 3 · Personalised pages (the dashboard)
-
-Bottom tabbar with five tabs: **Today · Money · Aria · Plan · Offers**. The Aria tab opens the chat; the other four are navigable, persona-aware pages composed of typed content blocks:
-
-- **alert** — priority items that deep-link into the chat ("Review with Aria →")
-- **kpi** — headline numbers with deltas
-- **insight** — Aria's observations about the customer
-- **narrative** — short paragraphs from Aria
-- **card** — rich product / transaction / Key Fact Statement cards (reuses the chat's card library)
-- **chart** — mini bar visualisations
-- **cta** — pill buttons that jump into the chat at a deep stage
-
-Same page structure, completely different content for Priya vs. Arjun. The cards on Arjun's *Plan* page model his card-upgrade pre-approval; the same page for Priya shows a 6-month cash-flow forecast and an indicative SME loan.
-
-### 4 · Chat (multi-stage conversation)
-
-The Aria tab opens the conversation. Aria asks clarifying questions before delivering the detailed response — reasoning steps tick off, tool-use chips fade in, the routed specialist agent is named with a colored badge, the response streams word-by-word with rich cards and inline regulatory references.
-
-### 5 · Classic view (the widget fallback)
-
-Top-right header toggle (**Aria** ↔ **Classic**) flips to a familiar banking app screen: account balance cards, six-tile quick actions, recent transactions, five-item bottom navigation. A floating **"Ask Aria"** pill returns to the hero.
+This is what you use for offline pitches and most demo situations.
 
 ---
 
-## Suggested walkthrough for a client pitch (~7 min)
+## Quickstart — live demo (5 minutes, real Claude API)
 
-### Opening (~20 sec)
+Same UI, but every chat reply is a real LLM call with real reasoning and tool routing. The audience can't tell the difference.
 
-> "Most banking apps put twelve features on the home screen and ask the customer to navigate. We've inverted that. The app opens with the agent."
+### 1 · Install Python dependencies
 
-### Beat 1 — Intro → hero (~30 sec)
+```bash
+cd output/demo-app/backend
+pip install -r requirements.txt
+```
 
-The intro plays automatically.
+Requires **Python 3.10+**.
 
-> "That orb is Aria. She's the front door."
+### 2 · Add your API key
 
-The hero settles. Read the greeting aloud.
+```bash
+cp .env.example .env
+```
 
-> "Notice it isn't a generic welcome. Aria already knows her balance, her OD utilisation, that her last GST return was filed early. The conversation starts from context."
+Edit `.env` and paste your Anthropic API key:
 
-### Beat 2 — A multi-stage answer (Priya · ~2 min)
+```
+ANTHROPIC_API_KEY=sk-ant-xxxxxxxxxxxxxxxxxxxxxxxxx
+MODEL=claude-haiku-4-5-20251001
+PORT=8000
+```
 
-Tap **"Borrow for the bakery"**.
+Get a key at <https://console.anthropic.com>. The Haiku model is cheap (~₹1/conversation); Sonnet 4.6 and Opus 4.7 also work.
 
-Aria asks: *"What's the financing for?"* → tap **"New equipment"** → Aria narrows again: *"Roughly how much, and how soon?"* → pick any.
+### 3 · Start the server
 
-Now Aria's full reasoning runs: cash-flow review, Account Aggregator consent flow, Key Fact Statement drafting. The **Sales & Advisory** badge slots in. The reply streams in with side-by-side options, Key Fact Statement breakdown, recommendation grounded in her seasonal cash dip, and an explicit AA consent ask.
+```bash
+python server.py
+```
 
-> "Notice the Key Fact Statement format — that's the RBI Digital Lending Guidelines disclosure, served inline in plain language. And the consent is single-purpose, time-bound, revocable."
+### 4 · Open the demo
 
-### Beat 3 — The personalised tabs (~2 min)
+<http://localhost:8000/>
 
-Tap the **Today** tab in the bottom bar.
+Look at the top-right of the phone status bar — a **small green dot** confirms live mode is active. Type any message in the composer · Aria will respond with real reasoning, tool calls, and a streamed answer grounded in the persona's mock data.
 
-> "This is what Aria has curated for Priya today — an alert on the held payment, today's cash position with the delta since yesterday, the GST insight, and a narrative on her monsoon dip. Same agent, structured presentation."
-
-Tap the **Today** alert's *"Review with Aria →"* button → it deep-links straight into the held-payment dialog.
-
-Back out via the tabbar. Tap **Plan**.
-
-> "A 6-month cash-flow forecast with the monsoon dip visible, the pre-qualified SME Equipment Loan with the full Key Fact Statement, an offer to set up a call with her relationship banker. None of this required her to navigate."
-
-Tap **Offers** to show MDR breakdown and partner offers; tap **Money** to show accounts with Aria's annotations on transactions.
-
-### Beat 4 — Switch persona (~1.5 min)
-
-Switch the top dropdown to **Arjun · Retail**. Intro plays again, hero greets Arjun.
-
-Tap **Today** → his dispute alert, salary credit, dining-up-18% insight.
-Tap **Plan** → spend-by-category chart, pre-approved Platinum Travel Card, subscription leakage insight.
-Tap **Offers** → Taj Holiday Village deal, IndiGo points redemption, zero-FX forex card with FEMA LRS framing.
-
-> "Same structure. Completely different content. Aria curates per customer."
-
-### Beat 5 — Classic fallback (~30 sec)
-
-Toggle **Classic** in the header.
-
-> "For the customer who still prefers a dashboard, it's right here. Aria sits as a floating pill, ready when they want her."
-
-Tap **Ask Aria** → returns to the hero.
-
-### Close (~30 sec)
-
-> "Three priority hotspots, surfaced through one conversation. A curated dashboard the customer never built. Every recommendation grounded in policy, every disclosure shown inline. And the traditional view is always one tap away."
+If the server isn't running, the same URL won't work — but `output/demo-app/index.html` will still open and run in scripted mode.
 
 ---
 
-## Customising what Aria says
+## Security · how the API key is protected
 
-All content lives in `scenarios.js`. To add a new intent, tweak a clarifying question, change a regulatory reference, or add a page block, edit:
+- The key lives **only** in `output/demo-app/backend/.env` — never in frontend code, never in the browser
+- The frontend calls `/api/chat/stream` on the backend; the backend makes the Anthropic call
+- `.env` is gitignored (add the project-root `.gitignore` if cloning fresh)
+- For hosted demos, you must keep the backend running — a static-only deploy (GitHub Pages, S3) cannot do live mode
 
-- `PERSONAS` — name, tagline, greetings
-- `CATEGORIES` — the three intent chips on the hero (per persona)
-- `STAGES` — the dialog graph: `type: "clarify"` (with options that branch) or `type: "final"` (full reasoning + tools + rich response)
-- `PERSONALISED_PAGES` — the four tab pages per persona, each a stack of typed blocks
-- `CLASSIC_VIEW` — accounts, quick actions, transactions for the widget fallback
+---
 
-Block types supported by the page renderer:
+## Project layout
 
-| Type | Use for |
+```
+agent-banking/
+├─ README.md                  ← you are here
+├─ .env.example               ← copy to .env at backend/ when going live
+├─ CLAUDE.md                  ← project context for AI assistants
+├─ output/
+│  ├─ demo-app/               ← the live demo (frontend + optional backend)
+│  │  ├─ index.html
+│  │  ├─ app.js               ← state machine · stage runner · live SSE handler
+│  │  ├─ scenarios.js         ← all persona data · 80+ stages · feature screens
+│  │  ├─ styles.css           ← design system · 2 600+ lines
+│  │  └─ backend/             ← optional FastAPI live mode (see backend/README.md)
+│  │     ├─ server.py
+│  │     ├─ agents.py
+│  │     ├─ tools.py
+│  │     ├─ data.py
+│  │     ├─ .env.example
+│  │     └─ README.md
+│  ├─ TRAIN-THE-TRAINER.md    ← onboarding doc · architecture, agentic concepts, journeys
+│  ├─ RUN-OF-SHOW.txt         ← 15-min demo script · click-by-click
+│  ├─ DEMO-WALKTHROUGH.md     ← slide-by-slide presenter guide
+│  ├─ PITCH-DECK.md           ← 5-slide pitch content
+│  └─ CHAT-HISTORY.md         ← build log · how the app evolved across 80+ prompts
+├─ resources/                 ← reference materials
+└─ workflows/                 ← workflow recipes
+```
+
+---
+
+## Where to read next
+
+| If you want to… | Open |
 |---|---|
-| `alert` | A priority item with a *Review with Aria →* button that deep-links into the chat at a stage ID |
-| `kpi` | A headline number with delta and context |
-| `insight` | Aria's observation about the customer |
-| `narrative` | A short Aria paragraph |
-| `chart` | A list of bars: `{ width, color, label }` |
-| `card` | A passthrough — drop existing rich card HTML (`.card`, `.kfs`, `.pill`) directly |
-| `cta` | A pill action that jumps to a chat stage |
-
-Save, refresh the browser — no build step.
+| Understand the agentic model + extend it | `output/TRAIN-THE-TRAINER.md` |
+| Present the demo to leadership (15-min run) | `output/RUN-OF-SHOW.txt` + `output/DEMO-WALKTHROUGH.md` |
+| Edit slide content for the deck | `output/PITCH-DECK.md` |
+| See how the app was built prompt-by-prompt | `output/CHAT-HISTORY.md` |
+| Deep-dive the backend (tools, agents, model) | `output/demo-app/backend/README.md` |
 
 ---
 
-## Technical notes
+## Deploying
 
-- Single-page experience built on plain HTML, CSS, and JavaScript. No framework, no build step, no server.
-- Runs entirely client-side. No external API calls. No network dependency.
-- Phone-framed for presentation; collapses to full-screen on narrow displays.
-- All regulatory references are factual and current as of 2025–26.
+**Static frontend only** (GitHub Pages / S3 / Netlify): scripted mode works · live mode does NOT (no backend to hold the key).
 
-## Evolving this further
+**Anywhere with Python + a domain** (Render / Fly.io / Railway / EC2): start `backend/server.py`, point a domain at it, and both modes work. The backend serves the static frontend at `/`, so a single deployment handles everything.
 
-- Plug a real model (Claude / OpenAI) into the stage runner — the reasoning-trace + tool-chip + streaming UI already speaks the language of tool-using agents.
-- Connect to an Account Aggregator simulator for live consent.
-- Add a fourth persona around **Origination & onboarding** (Rank #4 hotspot) once the first three land.
-- Wire the mic button to the Web Speech API for true voice input.
-- Persist intro-played state in `sessionStorage` so the splash only runs once per session.
+The cleanest approach for a hosted demo: pick any provider, set the `ANTHROPIC_API_KEY` env var in their dashboard (no `.env` file), and run `python output/demo-app/backend/server.py`.
+
+---
+
+## Tech stack
+
+- Frontend · vanilla HTML/CSS/JS · no framework · no build step · open `index.html` and it works
+- Backend · FastAPI + Anthropic SDK · SSE streaming · ~310 lines
+- Persona data · Python dicts in `backend/data.py`
+- Design system · 2 600+ lines of CSS, hand-rolled
+- Mock LLM tools · 12 tool definitions in `backend/tools.py` (cash-flow analytics, AML rules, KFS engine, etc) returning realistic synthetic outputs
+
+This is intentionally low-dependency so anyone reading the codebase can follow what's happening.
+
+---
+
+## License & attribution
+
+Internal Accenture Song demo · not for external distribution without permission. Built with Claude Code.
