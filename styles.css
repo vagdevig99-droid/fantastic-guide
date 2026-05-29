@@ -29,6 +29,12 @@
   --radius-lg: 22px;
   --radius-md: 14px;
   --radius-sm: 10px;
+
+  /* Phone design canvas · 9:19.5 modern smartphone (iPhone 14 Pro-ish) */
+  --phone-width: 406;
+  --phone-height: 880;
+  --phone-ratio: calc(var(--phone-width) / var(--phone-height));
+  --stage-pad: clamp(12px, 2vw, 24px);
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -77,28 +83,37 @@ body {
 }
 
 /* ─── Stage & Phone ─────────────────────────────────────────────────── */
-.stage { position: relative; z-index: 1; min-height: 100dvh;
-  display: grid; place-items: center; padding: 16px;
-  box-sizing: border-box; overflow: hidden; }
+.stage {
+  position: relative; z-index: 1;
+  min-height: 100vh;
+  min-height: 100svh;
+  min-height: 100dvh;
+  width: 100%;
+  display: grid;
+  place-items: center;
+  padding:
+    max(var(--stage-pad), env(safe-area-inset-top))
+    max(var(--stage-pad), env(safe-area-inset-right))
+    max(var(--stage-pad), env(safe-area-inset-bottom))
+    max(var(--stage-pad), env(safe-area-inset-left));
+  box-sizing: border-box;
+  overflow: hidden;
+}
 
 .phone {
-  /* Fit-to-viewport · phone scales DOWN to fit the available area while
-     preserving its 9:19.5 aspect ratio. Height is the smallest of:
-       (a) viewport height minus padding,
-       (b) viewport-width-derived height (so width also fits),
-       (c) the design max (880px) — on huge monitors, don't grow huger.
-     Width derives from height × (9/19.5) to lock the ratio.
-     Mobile media query below replaces this with a full-screen layout. */
-  height: min(
-    calc(100dvh - 32px),
-    calc((100vw - 32px) * 19.5 / 9),
-    880px
+  /* Fit-to-viewport without transform · width is the smaller of
+     viewport-width-minus-padding and viewport-height-derived-width
+     (via the aspect ratio). Capped at the 406-px design width.
+     aspect-ratio handles the height for us. */
+  aspect-ratio: var(--phone-width) / var(--phone-height);
+  width: min(
+    calc(100vw - (2 * var(--stage-pad))),
+    calc((100dvh - (2 * var(--stage-pad))) * var(--phone-ratio))
   );
-  width: calc(min(
-    calc(100dvh - 32px),
-    calc((100vw - 32px) * 19.5 / 9),
-    880px
-  ) * 9 / 19.5);
+  max-width: calc(var(--phone-width) * 1px);
+  max-height: calc(100dvh - (2 * var(--stage-pad)));
+  height: auto;
+
   background: linear-gradient(180deg, #0B0E1E 0%, #0E1024 100%);
   border-radius: 50px;
   box-shadow:
@@ -136,6 +151,41 @@ body {
 
 .status-bar { display: flex; justify-content: space-between; align-items: center;
   padding: 18px 18px 8px; font-size: 13px; font-weight: 600; color: var(--text); z-index: 5; }
+/* Subtle green dot · only shown when backend is reachable in live mode */
+.live-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: #2DD4BF;
+  box-shadow: 0 0 6px rgba(45,212,191,0.7);
+  margin-left: 8px;
+  animation: live-dot-pulse 2.4s ease-in-out infinite;
+}
+.live-dot[hidden] { display: none; }
+@keyframes live-dot-pulse {
+  0%, 100% { opacity: 0.55; transform: scale(1); }
+  50%      { opacity: 1;    transform: scale(1.15); }
+}
+
+/* Graceful live-mode error bubble · friendly tone + retry chip */
+.error-bubble .bubble {
+  background: rgba(244, 114, 182, 0.08);
+  border: 1px solid rgba(244, 114, 182, 0.22);
+  color: var(--text);
+}
+.error-bubble .error-retry {
+  margin-top: 8px;
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 5px 12px;
+  background: rgba(124, 92, 255, 0.14);
+  border: 1px solid rgba(124, 92, 255, 0.32);
+  color: #C8B7FF;
+  border-radius: 999px; cursor: pointer;
+  font-size: 12px; font-weight: 600; font-family: inherit;
+  transition: all 0.18s;
+}
+.error-bubble .error-retry:hover {
+  background: rgba(124, 92, 255, 0.22);
+  color: #fff;
+}
 .time { letter-spacing: 0.5px; }
 .status-icons { display: inline-flex; align-items: center; gap: 5px; }
 .status-icons svg { display: block; flex-shrink: 0; }
@@ -442,12 +492,16 @@ body {
   vertical-align: middle;
   white-space: nowrap;
   margin-right: 4px;
+  /* Allow the badge to shrink inside its container instead of overflowing */
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
 }
 .lever-badge + .lever-badge { margin-left: -1px; }
 .lever-badge .lever-icon { flex-shrink: 0; opacity: 0.85; }
-.lever-badge .lever-hotspot { font-weight: 700; }
-.lever-badge .lever-dot { opacity: 0.5; margin: 0 1px; }
-.lever-badge .lever-label { font-weight: 500; opacity: 0.95; }
+.lever-badge .lever-hotspot { font-weight: 700; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+.lever-badge .lever-dot { opacity: 0.5; margin: 0 1px; flex-shrink: 0; }
+.lever-badge .lever-label { font-weight: 500; opacity: 0.95; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
 
 .lever-badge.lever-origination {
   background: rgba(99, 102, 241, 0.12);
@@ -643,6 +697,16 @@ body {
   font-family: 'Space Grotesk','Inter',sans-serif;
   letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
 
+/* Lucide-style SVG icon sizing across tiles, chips, nav, and feature rows */
+.qa-icon svg, .chip-icon svg, .nav-item svg, .f-row-icon svg {
+  width: 22px; height: 22px;
+  stroke: currentColor; fill: none;
+  display: block;
+}
+.nav-item svg { width: 20px; height: 20px; }
+.f-row-icon svg { width: 18px; height: 18px; }
+.chip-icon { display: inline-flex; align-items: center; justify-content: center; }
+
 .quick-actions { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 8px; width: 100%; box-sizing: border-box; flex-shrink: 0; }
 .qa-tile { display: flex; flex-direction: column; align-items: center; justify-content: center;
@@ -831,7 +895,9 @@ body {
 .hero-chip .chip-icon {
   width: 30px; height: 30px; border-radius: 10px;
   display: grid; place-items: center; font-size: 15px; flex-shrink: 0;
-  background: var(--chip-grad, linear-gradient(135deg, var(--violet-2), var(--violet)));
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  color: var(--text);
 }
 .hero-chip .chip-text { flex: 1; }
 .hero-chip .arrow { color: var(--text-dim); }
@@ -1372,7 +1438,7 @@ body {
 
 /* Payment card display */
 .f-card {
-  padding: 14px;
+  padding: 16px;
   background: var(--card-grad, linear-gradient(135deg, var(--violet-2), var(--violet)));
   border-radius: 16px;
   color: #fff;
@@ -1395,14 +1461,16 @@ body {
 .f-card-rows .value { font-size: 13px; font-weight: 600;
   font-variant-numeric: tabular-nums; }
 .f-card-actions { display: flex; gap: 6px; flex-wrap: wrap;
-  margin-top: 14px; position: relative; z-index: 1; }
+  margin-top: 14px; padding-bottom: 4px;
+  position: relative; z-index: 1; }
 .f-card-actions button {
-  appearance: none; padding: 5px 10px;
+  appearance: none; padding: 6px 12px;
   background: rgba(255,255,255,0.15);
   border: 1px solid rgba(255,255,255,0.2);
   border-radius: 999px; color: #fff;
   font-family: inherit; font-size: 11px; font-weight: 500; cursor: pointer;
   transition: background 0.18s;
+  white-space: nowrap;
 }
 .f-card-actions button:hover { background: rgba(255,255,255,0.25); }
 
@@ -2107,18 +2175,19 @@ body {
   border-radius: 12px;
 }
 .plan-row {
-  display: flex; align-items: center; justify-content: space-between;
-  gap: 8px; padding: 6px 4px;
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  gap: 6px 8px; padding: 6px 4px;
   border-bottom: 1px dashed rgba(255,255,255,0.06);
 }
 .plan-row:last-child { border-bottom: none; }
 .plan-row-label {
   font-size: 12.5px; color: var(--text); line-height: 1.35;
-  flex: 1; min-width: 0;
+  flex: 1 1 60%; min-width: 0;
 }
 .plan-row-status {
   font-size: 11px; font-weight: 700; letter-spacing: 0.2px;
   padding: 3px 9px; border-radius: 999px; white-space: nowrap;
+  flex-shrink: 0; align-self: flex-start;
 }
 .plan-row.tone-warn    .plan-row-status { background: rgba(245,158,11,0.16); color: #FFC97A; border: 1px solid rgba(245,158,11,0.34); animation: pill-pulse-warn 2.4s ease-in-out infinite; }
 .plan-row.tone-info    .plan-row-status { background: rgba(124,92,255,0.16); color: #C8B7FF; border: 1px solid rgba(124,92,255,0.35); position: relative; overflow: hidden; }
@@ -2601,6 +2670,16 @@ body {
   border-color: var(--border-strong);
 }
 
+/* ─── Short laptop screens · tighten the stage padding ─────────────────── */
+@media (max-height: 820px) {
+  :root { --stage-pad: 12px; }
+}
+
+/* ─── Tablet-narrow viewports · slim padding helper ────────────────────── */
+@media (max-width: 768px) {
+  :root { --stage-pad: 10px; }
+}
+
 /* ─── Real mobile devices · fill the actual visible screen ─────────────── */
 /* Triggers on narrow viewports AND touch-only devices (no hover · coarse pointer)
    · uses 100dvh so iOS/Android dynamic browser chrome is respected
@@ -2610,6 +2689,9 @@ body {
   body { overflow: hidden; }
   .phone {
     width: 100vw; height: 100dvh;
+    aspect-ratio: auto;       /* override desktop aspect-lock */
+    max-width: none;
+    max-height: none;
     border-radius: 0; box-shadow: none;
     padding-top: env(safe-area-inset-top);
     padding-bottom: env(safe-area-inset-bottom);
