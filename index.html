@@ -34,6 +34,7 @@
       </div>
       <div class="status-bar">
         <span class="time">9:41</span>
+        <span class="live-dot" id="liveDot" hidden title="Live LLM mode active"></span>
         <span class="status-icons">
           <svg width="16" height="11" viewBox="0 0 16 11" fill="currentColor"><path d="M0 8h2v3H0zM4 6h2v5H4zM8 4h2v7H8zM12 1h2v10h-2z"/></svg>
           <span class="dot-sep"></span>
@@ -167,13 +168,7 @@
           <div class="classic-pad"></div>
         </div>
 
-        <div class="classic-nav">
-          <button class="nav-item active"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><span>Home</span></button>
-          <button class="nav-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12c0 5-4 9-9 9s-9-4-9-9 4-9 9-9 9 4 9 9zM12 7v5l3 2"/></svg><span>Pay</span></button>
-          <button class="nav-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="14" rx="2"/><line x1="2" y1="11" x2="22" y2="11"/></svg><span>Cards</span></button>
-          <button class="nav-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg><span>Invest</span></button>
-          <button class="nav-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg><span>More</span></button>
-        </div>
+        <div class="classic-nav" id="classicNav"></div>
 
         <button type="button" class="aria-fab" id="ariaFab" aria-label="Open Aria">
           <span class="orb-mini" aria-hidden="true">
